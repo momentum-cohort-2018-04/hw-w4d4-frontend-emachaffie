@@ -2,14 +2,19 @@
   box-sizing: border-box;
 }
 
-.album-img {
-  width: 100px;
-}
-
 #searchform {
   padding-bottom: 30px;
 }
 
 .hidden {
   display: none;
+}
+
+.search-results-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-img {
+  width: 100px;
 }
