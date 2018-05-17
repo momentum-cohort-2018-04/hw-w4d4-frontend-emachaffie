@@ -14,9 +14,13 @@
   </header>
   
   <main>
+
     <div id = "soundbar-div">
-      <!-- soundbar -->
-      <p>Listening to ARTIST NAME, ARTIST TRACK</p>
+        <audio id = "soundbar" controls>
+            <source src="media/DeathOrGlory.m4a" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+      <p class = "hidden listeningto">Listening to "Death or Glory" by The Clash</p>
     </div>
     
     <div id = "searchform-div">
@@ -26,10 +30,12 @@
       </form>
     </div>
 
-    <div id = "search-results-div">
+    <div id = "search-results-div" class = "container">
         
       <div class = "album-div">
-
+        <img class = "album-img" src="media/clashalbum.jpg">
+        <p class = "artistname">The Clash</p>
+        <p class = "songtitle">Death or Glory</p>
       </div>
 
     </div>
