@@ -2,7 +2,7 @@ import $ from 'jquery'
 import request from 'superagent'
 window.$ = $
 // Did the above because console was doing something else with $ that made it look like it was taking jquery but it wasn't
-
+let albumList = []
 // Function to listen for submit on search bar and to get value of input in search bar, send to API, return results and store in variable
 $(document).on('submit', '#searchform', function (event) {
   event.preventDefault()
@@ -16,7 +16,7 @@ $(document).on('submit', '#searchform', function (event) {
       // Did above because the iTunes API doesn't return results in JSON format and superagent expects JSON
       console.log(parsedResponse)
       let searchresults = parsedResponse.results
-      getTrackInfo()
+      getTrackInfo(searchresults)
       console.log(albumImage)
       console.log(artist)
       console.log(track)
@@ -32,11 +32,13 @@ $(document).on('submit', '#searchform', function (event) {
 
 // FUNCTION BELOW gets called in above so that searchresults has access to that value? 
 
-function getTrackInfo () {
-  searchresults.forEach(element => {
+function getTrackInfo (searchres) {
+  searchres.forEach(element => {
     let albumImage = track.artworkUrl60
     let artist = track.artistName
     let songTitle = track.trackName
+    resultsToHTML(albumImage, artist, songTitle)
+    albumList.push(resultsToHTML)
   })
 }
 // ${searchresults[i]}
@@ -44,7 +46,7 @@ function getTrackInfo () {
 // Function to insert getTrackInfo HTML into HTML
 // Do I take searchresults as the argument???// for each or map?
 
-function resultsToHTML (searchresults) {
+function resultsToHTML (albumImage, artist, songTitle) {
   return `
   <div class = "album-div">
         <img class = "album-img" src="${albumImage}">
@@ -54,7 +56,15 @@ function resultsToHTML (searchresults) {
   `
 }
 
-// Function to put HTML divs into HTML
+function insertResults (resultsToHTML) {
+  $('.search-results-div').append(resultsToHTML)
+}
+
+insertResults()
+
+// Make Classes?!?!??!?!
+
+// OR concat resultsto HTML.....
 
 // Function to play the song when album-div is clicked on  using event listener on search-results-div
 

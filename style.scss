@@ -10,9 +10,17 @@
   display: none;
 }
 
-.search-results-div {
+#search-results-div {
+  background: linear-gradient(#001a33,#FFF);
   display: flex;
   flex-wrap: wrap;
+}
+
+.album-div {
+  margin: 10px 20px;
+  padding: 5px 10px;
+  background-color: #FFF;
+  border-radius: 2px;
 }
 
 .album-img {
