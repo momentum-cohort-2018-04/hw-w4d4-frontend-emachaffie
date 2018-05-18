@@ -17,12 +17,9 @@ $(document).on('submit', '#searchform', function (event) {
       console.log(parsedResponse)
       let searchresults = parsedResponse.results
       getTrackInfo(searchresults)
-      console.log(albumImage)
-      console.log(artist)
-      console.log(track)
       // console.log (searchresults)
       // resultsToHTML()
-      // console.log(resultsToHTML)
+      console.log(albumList)
     }
     )
 })
@@ -30,10 +27,10 @@ $(document).on('submit', '#searchform', function (event) {
 // function
 // This make function for one item in array, then call this one in a separate function
 
-// FUNCTION BELOW gets called in above so that searchresults has access to that value? 
+// FUNCTION BELOW gets called in above so that searchresults has access to that value?
 
 function getTrackInfo (searchres) {
-  searchres.forEach(element => {
+  searchres.forEach(track => {
     let albumImage = track.artworkUrl60
     let artist = track.artistName
     let songTitle = track.trackName
