@@ -5,14 +5,20 @@ window.$ = $
 let albumList = []
 // let previewList = []
 
+// $('.album-div').click(function (event) {
+//   event.preventDefault()
+//   $('#newSoundbar').html('')
+// })
+
 // Function to listen for submit on search bar and to get value of input in search bar, send to API, return results and store in variable
 $(document).on('submit', '#searchform', function (event) {
   event.preventDefault()
+  // $('.container').empty()
   $('#search-results-div').html('')
   let $searchterms = $('#searchinput').val()
   // $('.album-div').remove()
-  console.log($searchterms)
-  console.log('Search button clicked')
+  // console.log($searchterms)
+  // console.log('Search button clicked')
   request
     .get(`https://itunes.apple.com/search?term=${$searchterms}&media=music`)
     .then(response => {
@@ -31,14 +37,10 @@ $(document).on('submit', '#searchform', function (event) {
         event.preventDefault()
         // let previewUrl =
         // console.log(previewUrl)
-        $('#newSoundbar').remove()
+        // $('#newSoundbar').remove()
         let previewUrlToHTML = event.currentTarget.dataset.id
         let insertablePreviewHTML = songPreviewToHTML(previewUrlToHTML)
         insertPreview(insertablePreviewHTML)
-        // insertPreview(previewUrl)
-        // get previewurl from that array index
-        // Previewurl gets put into player html
-        // Preview autoplays
       })
     }
     )
@@ -68,7 +70,7 @@ function resultsToHTML (previewUrl, albumImage, artist, songTitle) {
 }
 
 function insertResults (joinedalbumList) {
-  $('#search-results-div').append(joinedalbumList)
+  $('#search-results-div').html(joinedalbumList)
 }
 
 // Soundbar Functions
@@ -79,8 +81,14 @@ function songPreviewToHTML (previewUrl) {
 }
 
 function insertPreview (previewList) {
-  $('#soundbar').append(previewList)
+  $('#soundbar').html('')
+  $('#soundbar').html(previewList).trigger('load').trigger('play')
 }
+
+// function myFunction() {
+//   document.getElementById("mp4_src").src = "movie.mp4";
+//   document.getElementById("ogg_src").src = "movie.ogg";
+//   document.getElementById("myVideo").load();
 
 // Function to play the song when album-div is clicked on  using event listener on search-results-div
 // $('.album-div').click(function (event) {
