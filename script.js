@@ -3,6 +3,7 @@ import request from 'superagent'
 window.$ = $
 // Did the above because console was doing something else with $ that made it look like it was taking jquery but it wasn't
 let albumList = []
+// let preAlbumList = []
 // Function to listen for submit on search bar and to get value of input in search bar, send to API, return results and store in variable
 $(document).on('submit', '#searchform', function (event) {
   event.preventDefault()
@@ -17,9 +18,11 @@ $(document).on('submit', '#searchform', function (event) {
       console.log(parsedResponse)
       let searchresults = parsedResponse.results
       getTrackInfo(searchresults)
+      let joinedalbumList = albumList.join('')
       // console.log (searchresults)
       // resultsToHTML()
-      console.log(albumList)
+      console.log(joinedalbumList)
+      insertResults(joinedalbumList)
     }
     )
 })
@@ -31,11 +34,13 @@ $(document).on('submit', '#searchform', function (event) {
 
 function getTrackInfo (searchres) {
   searchres.forEach(track => {
-    let albumImage = track.artworkUrl60
+    let albumImage = track.artworkUrl100
     let artist = track.artistName
     let songTitle = track.trackName
-    resultsToHTML(albumImage, artist, songTitle)
-    albumList.push(resultsToHTML)
+    let x = resultsToHTML(albumImage, artist, songTitle)
+    albumList.push(x)
+    // console.log (albumList)
+    // join and push to innerhtml
   })
 }
 // ${searchresults[i]}
@@ -53,16 +58,13 @@ function resultsToHTML (albumImage, artist, songTitle) {
   `
 }
 
-function insertResults (resultsToHTML) {
-  $('.search-results-div').append(resultsToHTML)
+function insertResults (joinedalbumList) {
+  $('#search-results-div').append(joinedalbumList)
 }
 
-insertResults()
-
-// Make Classes?!?!??!?!
-
-// OR concat resultsto HTML.....
-
+$('.album-div').click(function () {
+  console.log("It's working")
+})
 // Function to play the song when album-div is clicked on  using event listener on search-results-div
 
 // Function to clear results of last search when new search is done?
