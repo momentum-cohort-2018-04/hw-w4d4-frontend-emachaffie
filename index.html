@@ -10,11 +10,9 @@
 </head>
 <body>
   <header>
-    <h1 id = "header-text">Feel the Music</h1>
-  </header>
-  
-  <main>
-
+    <div class = "header-text-div">
+      <h1 id = "header-text">Feel the Music</h1>
+    </div>
     <div id = "soundbar-div">
         <audio id = "soundbar" controls autoplay>
             <!-- <source src="media/DeathOrGlory.m4a" type="audio/mpeg"> -->
@@ -22,17 +20,29 @@
       <p class = "hidden listeningto">Listening to "Death or Glory" by The Clash</p>
     </div>
     
-    <div id = "searchform-div">
-      <form id = "searchform">
-        <input id = "searchinput" type = "text" placeholder = "Search by artist, song, or genre">
-        <button type = "submit" id = "search-button">Search</button>
-      </form>
-      <form id = "jpsearchform">
+    <div id = "searchforms">
+      <div id = "searchform-div">
+        <img class = "flag" id = "us-flag" src="media/usflag.png">
+        <p>Search iTunes US</p>
+        <form id = "searchform">
+          <input id = "searchinput" type = "text" placeholder = "Search by artist, song, or genre">
+          <button type = "submit" id = "search-button">Search</button>
+        </form>
+      </div>
+
+      <div id = "jp-searchform-div">
+          <img  class = "flag" id = "jp-flag" src="media/jpflag.png">
+          <p>iTunes JP <span lang="jp">で探して</span></p>
+          <form id = "jpsearchform">
           <input id = "jpsearchinput" type = "text" lang = "jp" placeholder = "アーティスト、曲、アルバムで探して">
           <button type = "submit" id = "jp-search-button" lang = "jp">サーチ</button>
         </form>
+      </div>
     </div>
 
+  </header>
+  
+  <main>
     <div id = "search-results-div" class = "container">
         
 

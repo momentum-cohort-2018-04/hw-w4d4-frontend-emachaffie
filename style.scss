@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+// Header 
 
 #searchform {
   padding-bottom: 30px;
@@ -9,6 +10,19 @@
 .hidden {
   display: none;
 }
+
+.flag {
+  width: 30px;
+  box-shadow: 2px 2px 3px;
+}
+
+#searchforms p {
+  display: inline;
+}
+
+
+
+// Main
 
 #search-results-div {
   background: linear-gradient(#001a33,#FFF);

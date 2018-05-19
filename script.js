@@ -5,16 +5,16 @@ window.$ = $
 let albumList = []
 
 // Function to listen for submit on search bar and to get value of input in search bar, send to API, return results and store in variable
-$(document).on('submit', '#searchform', function (event) {
+
+// US iTunes Search
+$('#search-button').click(function (event) {
   event.preventDefault()
   // $('.container').empty()
   $('#search-results-div').html('')
   albumList = []
   console.log(albumList)
   let $searchterms = $('#searchinput').val()
-  
 
-  // US iTunes Search
   request
     .get(`https://itunes.apple.com/search?term=${$searchterms}&media=music&explicit=yes`)
     .then(response => {
@@ -42,19 +42,18 @@ $(document).on('submit', '#searchform', function (event) {
     )
 })
 
-
 // Japan iTunes Search
-$(document).on('submit', '#jpsearchform', function (event) {
+$('#jp-search-button').click(function (event) {
   event.preventDefault()
   // $('.container').empty()
   $('#search-results-div').html('')
   albumList = []
-  console.log(albumList)
-  let $searchterms = $('#searchinput').val()
+  let $searchterms = $('#jpsearchinput').val()
   // $('.album-div').remove()
   request
-    .get(`https://itunes.apple.com/search?term=${$searchterms}&country=jp&media=music&explicit=yes`)
+    .get(`https://itunes.apple.com/search?term=${$searchterms}&country=jp&lang=ja_jp&media=music&explicit=yes`)
     .then(response => {
+      console.log(response)
       let parsedResponse = JSON.parse(response.text)
       // Did above because the iTunes API doesn't return results in JSON format and superagent expects JSON
       console.log(parsedResponse)
@@ -117,39 +116,5 @@ function insertPreview (previewList) {
   $('#soundbar').html('')
   $('#soundbar').html(previewList).trigger('load').trigger('play')
 }
-
-// function myFunction() {
-//   document.getElementById("mp4_src").src = "movie.mp4";
-//   document.getElementById("ogg_src").src = "movie.ogg";
-//   document.getElementById("myVideo").load();
-
-// Function to play the song when album-div is clicked on  using event listener on search-results-div
-// $('.album-div').click(function (event) {
-//   event.preventDefault()
-//   console.log('Album div clicked')
-//   let $searchterms = $('#searchinput').val()
-//   console.log($searchterms)
-//   console.log('Search button clicked')
-//   request
-//     .get(`https://itunes.apple.com/search?term=${$searchterms}&media=music`)
-// .then(response => {
-//   let parsedResponse = JSON.parse(response.text)
-//   // Did above because the iTunes API doesn't return results in JSON format and superagent expects JSON
-//   console.log(parsedResponse)
-//   let searchresults = parsedResponse.results
-//   getTrackInfo(searchresults)
-//   let joinedalbumList = albumList.join('')
-//   // console.log (searchresults)
-//   // resultsToHTML()
-//   console.log(joinedalbumList)
-//   insertResults(joinedalbumList)
-// }
-// )
-
-// get previewurl from API
-// Previewurl gets put into player html
-// Preview autoplays
-
-// })
 
 // Function to clear results of last search when new search is done?
