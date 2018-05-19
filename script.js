@@ -3,24 +3,57 @@ import request from 'superagent'
 window.$ = $
 // Did the above because console was doing something else with $ that made it look like it was taking jquery but it wasn't
 let albumList = []
-// let previewList = []
-
-// $('.album-div').click(function (event) {
-//   event.preventDefault()
-//   $('#newSoundbar').html('')
-// })
 
 // Function to listen for submit on search bar and to get value of input in search bar, send to API, return results and store in variable
 $(document).on('submit', '#searchform', function (event) {
   event.preventDefault()
   // $('.container').empty()
   $('#search-results-div').html('')
+  albumList = []
+  console.log(albumList)
+  let $searchterms = $('#searchinput').val()
+  
+
+  // US iTunes Search
+  request
+    .get(`https://itunes.apple.com/search?term=${$searchterms}&media=music&explicit=yes`)
+    .then(response => {
+      let parsedResponse = JSON.parse(response.text)
+      // Did above because the iTunes API doesn't return results in JSON format and superagent expects JSON
+      console.log(parsedResponse)
+      let searchresults = parsedResponse.results
+      getTrackInfo(searchresults)
+      let joinedalbumList = albumList.join('')
+      // console.log (searchresults)
+      // resultsToHTML()
+      console.log(joinedalbumList)
+      insertResults(joinedalbumList)
+
+      $('.album-div').click(function (event) {
+        event.preventDefault()
+        // let previewUrl =
+        // console.log(previewUrl)
+        // $('#newSoundbar').remove()
+        let previewUrlToHTML = event.currentTarget.dataset.id
+        let insertablePreviewHTML = songPreviewToHTML(previewUrlToHTML)
+        insertPreview(insertablePreviewHTML)
+      })
+    }
+    )
+})
+
+
+// Japan iTunes Search
+$(document).on('submit', '#jpsearchform', function (event) {
+  event.preventDefault()
+  // $('.container').empty()
+  $('#search-results-div').html('')
+  albumList = []
+  console.log(albumList)
   let $searchterms = $('#searchinput').val()
   // $('.album-div').remove()
-  // console.log($searchterms)
-  // console.log('Search button clicked')
   request
-    .get(`https://itunes.apple.com/search?term=${$searchterms}&media=music`)
+    .get(`https://itunes.apple.com/search?term=${$searchterms}&country=jp&media=music&explicit=yes`)
     .then(response => {
       let parsedResponse = JSON.parse(response.text)
       // Did above because the iTunes API doesn't return results in JSON format and superagent expects JSON
