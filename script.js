@@ -117,4 +117,6 @@ function insertPreview (previewList) {
   $('#soundbar').html(previewList).trigger('load').trigger('play')
 }
 
-// Function to clear results of last search when new search is done?
+// Featured Song Plays
+
+// $().click ()
