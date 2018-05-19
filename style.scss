@@ -73,7 +73,7 @@ audio {
   flex-wrap: wrap;
 }
 
-.album-div {
+.album-div, .featured-div {
   margin: 10px 20px;
   padding: 5px 10px;
   background-color: #FFF;
@@ -93,4 +93,12 @@ audio {
 
 .album-img {
   width: 100px;
+}
+
+// Featured Songs
+
+#featured-songs {
+  display: flex;
+  flex-wrap: wrap;
+  
 }

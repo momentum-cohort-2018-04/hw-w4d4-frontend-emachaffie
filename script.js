@@ -60,9 +60,7 @@ $('#jp-search-button').click(function (event) {
       let searchresults = parsedResponse.results
       getTrackInfo(searchresults)
       let joinedalbumList = albumList.join('')
-      // console.log (searchresults)
-      // resultsToHTML()
-      console.log(joinedalbumList)
+      // console.log(joinedalbumList)
       insertResults(joinedalbumList)
 
       $('.album-div').click(function (event) {
@@ -119,4 +117,11 @@ function insertPreview (previewList) {
 
 // Featured Song Plays
 
-// $().click ()
+$('.featured-div').click(function (event) {
+  event.preventDefault()
+  $('#soundbar').html('')
+  let previewUrlToHTML = event.currentTarget.dataset.id
+  let insertablePreviewHTML = songPreviewToHTML(previewUrlToHTML)
+  insertPreview(insertablePreviewHTML)
+}
+)
