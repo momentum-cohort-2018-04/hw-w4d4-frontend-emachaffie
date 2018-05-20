@@ -5,6 +5,7 @@
 body {
   margin: 20px 25px;
   min-width: 400px;
+  font-family: 'Average Sans', sans-serif;
 }
 // Header 
 
@@ -14,18 +15,24 @@ header {
   border-radius: 10px 10px 0 0;
 }
 
+h1 {
+  // color: #F4F3EE;
+  color: #26211E;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+
+h3 {
+  text-align: center;
+  color: #F4F3EE;
+}
+
 .header-text-div {
   background-image: url("media/headerbackground.png");
   background-size: cover;
   padding: 20px 10px;
   text-align: center;
   border-radius: 10px;
-  // background-color: blue;
-}
-
-h1 {
-  // color: #F4F3EE;
-  color: #26211E;
 }
 
   // Audio Player
@@ -50,17 +57,18 @@ audio {
 
   // Search Bars
 
-// .hidden {
-//   display: none;
-// }
+.hidden {
+  display: none;
+}
 
 .flag {
   width: 30px;
-  box-shadow: 2px 2px 3px;
+  // box-shadow: 2px 2px 3px;
 }
 
-#us-searchform-div {
+#jp-searchform-div, #us-searchform-div {
   padding-bottom: 20px;
+  color: #F4F3EE;
 }
 
 #searchforms {
@@ -85,18 +93,24 @@ audio {
   }
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 90%
+}
+
 
 // Main
 
 
 main {
-  background-color: #f4f3ee;
+  background-color: #D2CABC;
   padding: 10px 30px;
   border-radius: 0 0 10px 10px;
 }
 
 #search-results-div {
-  background: #F4F3EE;
+  // background: #F4F3EE;
   display: flex;
   flex-wrap: wrap;
 }
@@ -104,17 +118,32 @@ main {
 .album-div, .featured-div {
   margin: 10px 20px;
   padding: 5px 10px;
-  background-color: #FFF;
+  background-color: #F4F3EE;
   border-radius: 4px;
   flex-grow: none;
   width: 150px;
+  
 
   :hover {
     cursor: pointer;
   }
 
+  .album-img {
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+
   .artistname{
-    font-weight: 900;
+    font-weight: 700;
+    text-align: center;
+    padding: 4px;
+    margin: 0;
+  }
+
+  .songtitle {
+    text-align: center;
+    padding: 4px;
+    margin:0;
   }
 
 }

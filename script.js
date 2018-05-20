@@ -40,6 +40,7 @@ $('#search-button').click(function (event) {
       })
     }
     )
+  document.getElementById('searchform').reset()
 })
 
 // Japan iTunes Search
@@ -87,6 +88,7 @@ function getTrackInfo (searchres) {
     albumList.push(x)
     // previewList.push(y)
   })
+  document.getElementById('jpsearchform').reset()
 }
 
 function resultsToHTML (previewUrl, albumImage, artist, songTitle) {
@@ -125,3 +127,20 @@ $('.featured-div').click(function (event) {
   insertPreview(insertablePreviewHTML)
 }
 )
+
+// Sticky Player
+
+// window.onscroll = function () {
+//   stickyplayer()
+// }
+
+// var player = document.getElementById('soundbar-div')
+// var sticky = player.offsetTop
+
+// function stickyplayer () {
+//   if (window.pageYOffset > sticky) {
+//     player.classList.add('sticky')
+//   } else {
+//     player.classList.remove('sticky')
+//   }
+// }
