@@ -14,8 +14,18 @@ header {
   border-radius: 10px 10px 0 0;
 }
 
+.header-text-div {
+  background-image: url("media/headerbackground.png");
+  background-size: cover;
+  padding: 20px 10px;
+  text-align: center;
+  border-radius: 10px;
+  // background-color: blue;
+}
+
 h1 {
-  color: #F4F3EE;
+  // color: #F4F3EE;
+  color: #26211E;
 }
 
   // Audio Player
