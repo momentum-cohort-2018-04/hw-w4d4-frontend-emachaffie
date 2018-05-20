@@ -21,7 +21,6 @@ h1 {
   font-family: 'Fjalla One', sans-serif;
 }
 
-
 h3 {
   text-align: center;
   color: #F4F3EE;
@@ -57,9 +56,9 @@ audio {
 
   // Search Bars
 
-.hidden {
-  display: none;
-}
+// .hidden {
+//   display: none;
+// }
 
 .flag {
   width: 30px;
@@ -67,8 +66,12 @@ audio {
 }
 
 #jp-searchform-div, #us-searchform-div {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   color: #F4F3EE;
+}
+
+#us-searchform-div {
+  padding-top: 30px;
 }
 
 #searchforms {
@@ -107,6 +110,11 @@ main {
   background-color: #D2CABC;
   padding: 10px 30px;
   border-radius: 0 0 10px 10px;
+  margin-top: 50px;
+}
+
+.container {
+  padding-top: 50px;
 }
 
 #search-results-div {

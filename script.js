@@ -31,9 +31,6 @@ $('#search-button').click(function (event) {
 
       $('.album-div').click(function (event) {
         event.preventDefault()
-        // let previewUrl =
-        // console.log(previewUrl)
-        // $('#newSoundbar').remove()
         let previewUrlToHTML = event.currentTarget.dataset.id
         let insertablePreviewHTML = songPreviewToHTML(previewUrlToHTML)
         insertPreview(insertablePreviewHTML)
@@ -66,9 +63,6 @@ $('#jp-search-button').click(function (event) {
 
       $('.album-div').click(function (event) {
         event.preventDefault()
-        // let previewUrl =
-        // console.log(previewUrl)
-        // $('#newSoundbar').remove()
         let previewUrlToHTML = event.currentTarget.dataset.id
         let insertablePreviewHTML = songPreviewToHTML(previewUrlToHTML)
         insertPreview(insertablePreviewHTML)
@@ -84,12 +78,16 @@ function getTrackInfo (searchres) {
     let songTitle = track.trackName
     let previewUrl = track.previewUrl
     let x = resultsToHTML(previewUrl, albumImage, artist, songTitle)
-    // let y = songPreviewToHTML(previewUrl)
     albumList.push(x)
-    // previewList.push(y)
+    // nowPlayingList.innerText = nowListeningToHTML(songTitle, artist)
   })
   document.getElementById('jpsearchform').reset()
 }
+
+// function nowListeningToHTML (songTitle, artist) {
+//   return `
+//   <p class = "listeningto">"${songTitle}" by ${artist}</p>`
+// }
 
 function resultsToHTML (previewUrl, albumImage, artist, songTitle) {
   return `
@@ -115,6 +113,7 @@ function songPreviewToHTML (previewUrl) {
 function insertPreview (previewList) {
   $('#soundbar').html('')
   $('#soundbar').html(previewList).trigger('load').trigger('play')
+  // document.getElementById('nowListening').innerHTML = nowPlayingList
 }
 
 // Featured Song Plays
@@ -130,17 +129,17 @@ $('.featured-div').click(function (event) {
 
 // Sticky Player
 
-// window.onscroll = function () {
-//   stickyplayer()
-// }
+window.onscroll = function () {
+  stickyplayer()
+}
 
-// var player = document.getElementById('soundbar-div')
-// var sticky = player.offsetTop
+var player = document.getElementById('soundbar-div')
+var sticky = player.offsetTop
 
-// function stickyplayer () {
-//   if (window.pageYOffset > sticky) {
-//     player.classList.add('sticky')
-//   } else {
-//     player.classList.remove('sticky')
-//   }
-// }
+function stickyplayer () {
+  if (window.pageYOffset > sticky) {
+    player.classList.add('sticky')
+  } else {
+    player.classList.remove('sticky')
+  }
+}
