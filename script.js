@@ -63,6 +63,7 @@ $('#jp-search-button').click(function (event) {
 
       $('.album-div').click(function (event) {
         event.preventDefault()
+        console.log('clicked')
         let previewUrlToHTML = event.currentTarget.dataset.id
         let insertablePreviewHTML = songPreviewToHTML(previewUrlToHTML)
         insertPreview(insertablePreviewHTML)
@@ -79,9 +80,8 @@ function getTrackInfo (searchres) {
     let previewUrl = track.previewUrl
     let x = resultsToHTML(previewUrl, albumImage, artist, songTitle)
     albumList.push(x)
-    // nowPlayingList.innerText = nowListeningToHTML(songTitle, artist)
   })
-  document.getElementById('jpsearchform').reset()
+  // document.getElementById('jpsearchform').reset()
 }
 
 // function nowListeningToHTML (songTitle, artist) {
@@ -113,7 +113,6 @@ function songPreviewToHTML (previewUrl) {
 function insertPreview (previewList) {
   $('#soundbar').html('')
   $('#soundbar').html(previewList).trigger('load').trigger('play')
-  // document.getElementById('nowListening').innerHTML = nowPlayingList
 }
 
 // Featured Song Plays

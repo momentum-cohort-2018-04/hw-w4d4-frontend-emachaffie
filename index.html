@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,86 +10,92 @@
   <link href="https://fonts.googleapis.com/css?family=Average+Sans|Fjalla+One" rel="stylesheet">
   <link rel="stylesheet" href="style.scss">
 </head>
+
 <body>
   <header>
-    <div class = "header-text-div">
-      <h1 id = "header-text">Multilingual Melodies</h1>
+    <div class="header-text-div">
+      <h1 id="header-text">Multilingual Melodies</h1>
     </div>
     <h3>JP-EN iTunes Search for Language-Learners</h3>
-      <!-- <p>One of the best things you can do to learn a language is to immerse yourself in it. Find songs you love and get them on iTunes or check them out on YouTube!</p>
+    <!-- <p>One of the best things you can do to learn a language is to immerse yourself in it. Find songs you love and get them on iTunes or check them out on YouTube!</p>
      -->
-    <div id = "searchforms">
-      <div id = "us-searchform-div">
-        <img class = "flag" id = "us-flag" src="media/usflag.png">
+     <div class="" id="soundbar-div">
+      <audio id="soundbar" controls autoplay>
+        <!-- <source src="media/DeathOrGlory.m4a" type="audio/mpeg"> -->
+      </audio>
+      <div id="nowListening">
+        <!-- <p class = "listeningto">"Death or Glory" by The Clash</p> -->
+      </div>
+    </div>
+    <div id="searchforms">
+      <div id="us-searchform-div">
+        <img class="flag" id="us-flag" src="media/usflag.png">
         <p>Search iTunes US</p>
-        <form id = "searchform">
-          <input id = "searchinput" type = "text" placeholder = "Search by artist, song, or genre">
-          <button type = "submit" id = "search-button">Search</button>
+        <form id="searchform">
+          <input id="searchinput" type="text" placeholder="Search by artist, song, or genre">
+          <button type="submit" id="search-button">Search</button>
         </form>
       </div>
 
-    <div id = "jp-searchform-div">
-        <img  class = "flag" id = "jp-flag" src="media/jpflag.png">
-        <p>iTunes JP <span lang="jp">で探して</span></p>
-        <form id = "jpsearchform">
-        <input id = "jpsearchinput" type = "text" lang = "jp" placeholder = "アーティスト、曲、アルバムで探して">
-        <button type = "submit" id = "jp-search-button" lang = "jp">サーチ</button>
-      </form>
-    </div>
-    <div class = "" id = "soundbar-div">
-        <audio id = "soundbar" controls autoplay>
-            <!-- <source src="media/DeathOrGlory.m4a" type="audio/mpeg"> -->
-        </audio>
-        <div id = "nowListening">
-      <!-- <p class = "listeningto">"Death or Glory" by The Clash</p> -->
-        </div>
-    </div>
+      <div id="jp-searchform-div">
+        <img class="flag" id="jp-flag" src="media/jpflag.png">
+        <p>iTunes JP
+          <span lang="jp">で探して</span>
+        </p>
+        <form id="jpsearchform">
+          <input id="jpsearchinput" type="text" lang="jp" placeholder="アーティスト、曲、アルバムで探して">
+          <button type="submit" id="jp-search-button" lang="jp">サーチ</button>
+        </form>
+      </div>
     </div>
 
   </header>
-  
+
   <main>
     <!-- Search Results -->
-    <div id = "search-results-div" class = "container">
-        
+    <div id="search-results-div" class="container">
+
     </div>
 
     <!-- Featured Songs -->
-        <h2>Featured Songs / <span lang = "jp">今週の曲</span></h2>
-        <div id = "featured-songs">
-            <div class = "featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview111/v4/5a/00/77/5a0077b2-1cfb-1488-2193-18954b3fbf6a/mzaf_3812150045642367775.plus.aac.p.m4a">
-              <img class = "album-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/11/ce/d4/11ced424-3410-1951-f5d9-d861207a9a23/source/100x100bb.jpg">
-              <p class = "artistname">モアナ(屋比久知奈)</p>
-              <p class = "songtitle">どこまでも</p>
-            </div>
-            <div class = "featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/v4/8f/dc/37/8fdc37e3-b3b3-a214-ea05-816a037edcd1/mzaf_2562496807894897418.plus.aac.p.m4a">
-              <img class = "album-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music/v4/66/89/b8/6689b882-8e2c-260d-1c46-864d440bade1/source/100x100bb.jpg">
-              <p class = "artistname">The Clash</p>
-              <p class = "songtitle">Death or Glory</p>
-            </div>
-            <div class = "featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/e6/e4/00/mzm.blbhwqvy.aac.p.m4a">
-                <img class = "album-img" src="https://is5-ssl.mzstatic.com/image/thumb/Music/v4/26/34/da/2634da49-7962-9eeb-9c7a-267dbc7fac1c/source/100x100bb.jpg">
-                <p class = "artistname">K'naan</p>
-                <p class = "songtitle">Wavin' Flag</p>
-            </div>
-            <div class = "featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music4/v4/32/be/29/32be2972-4783-6cf4-17bf-e4f42ca75844/mzaf_2020418063674623369.plus.aac.p.m4a">
-              <img class = "album-img" src="https://is4-ssl.mzstatic.com/image/thumb/Music/v4/a3/ca/3d/a3ca3d77-4494-5f55-9e01-79c12c24b474/source/100x100bb.jpg">
-              <p class = "artistname">AI</p>
-              <p class = "songtitle">Gloria</p>
-            </div>
-            <div class = "featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview118/v4/2f/84/ad/2f84ad2a-8d9f-c9d5-93e3-3f77a13894b2/mzaf_6386761790885870330.plus.aac.p.m4a">
-              <img class = "album-img" src="https://is3-ssl.mzstatic.com/image/thumb/Music71/v4/ec/c2/c1/ecc2c16b-8b9b-52b4-442a-6bce3d7c1ac4/source/100x100bb.jpg">
-              <p class = "artistname">Creed</p>
-              <p class = "songtitle">With Arms Wide Open</p>
-            </div>
-            <div class = "featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/15/5f/d7/155fd712-325c-dc2d-b8c9-58a1c85e71bd/mzaf_486755005675041052.plus.aac.p.m4a">
-              <img class = "album-img" src="https://is3-ssl.mzstatic.com/image/thumb/Music/v4/e8/ef/0c/e8ef0c2e-1c5e-3507-f69f-9edf1d24ff70/source/100x100bb.jpg">
-              <p class = "artistname" lang = "jp">モンゴル800</p>
-              <p class = "songtitle" lang = "jp">小さな恋の歌</p>
-            </div>
-        </div>
+    <h2>Featured Songs /
+      <span lang="jp">今週の曲</span>
+    </h2>
+    <div id="featured-songs">
+      <div class="featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview111/v4/5a/00/77/5a0077b2-1cfb-1488-2193-18954b3fbf6a/mzaf_3812150045642367775.plus.aac.p.m4a">
+        <img class="album-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/11/ce/d4/11ced424-3410-1951-f5d9-d861207a9a23/source/100x100bb.jpg">
+        <p class="artistname">モアナ(屋比久知奈)</p>
+        <p class="songtitle">どこまでも</p>
+      </div>
+      <div class="featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/v4/8f/dc/37/8fdc37e3-b3b3-a214-ea05-816a037edcd1/mzaf_2562496807894897418.plus.aac.p.m4a">
+        <img class="album-img" src="https://is1-ssl.mzstatic.com/image/thumb/Music/v4/66/89/b8/6689b882-8e2c-260d-1c46-864d440bade1/source/100x100bb.jpg">
+        <p class="artistname">The Clash</p>
+        <p class="songtitle">Death or Glory</p>
+      </div>
+      <div class="featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music/e6/e4/00/mzm.blbhwqvy.aac.p.m4a">
+        <img class="album-img" src="https://is5-ssl.mzstatic.com/image/thumb/Music/v4/26/34/da/2634da49-7962-9eeb-9c7a-267dbc7fac1c/source/100x100bb.jpg">
+        <p class="artistname">K'naan</p>
+        <p class="songtitle">Wavin' Flag</p>
+      </div>
+      <div class="featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/Music4/v4/32/be/29/32be2972-4783-6cf4-17bf-e4f42ca75844/mzaf_2020418063674623369.plus.aac.p.m4a">
+        <img class="album-img" src="https://is4-ssl.mzstatic.com/image/thumb/Music/v4/a3/ca/3d/a3ca3d77-4494-5f55-9e01-79c12c24b474/source/100x100bb.jpg">
+        <p class="artistname">AI</p>
+        <p class="songtitle">Gloria</p>
+      </div>
+      <div class="featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview118/v4/2f/84/ad/2f84ad2a-8d9f-c9d5-93e3-3f77a13894b2/mzaf_6386761790885870330.plus.aac.p.m4a">
+        <img class="album-img" src="https://is3-ssl.mzstatic.com/image/thumb/Music71/v4/ec/c2/c1/ecc2c16b-8b9b-52b4-442a-6bce3d7c1ac4/source/100x100bb.jpg">
+        <p class="artistname">Creed</p>
+        <p class="songtitle">With Arms Wide Open</p>
+      </div>
+      <div class="featured-div" data-id="https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/15/5f/d7/155fd712-325c-dc2d-b8c9-58a1c85e71bd/mzaf_486755005675041052.plus.aac.p.m4a">
+        <img class="album-img" src="https://is3-ssl.mzstatic.com/image/thumb/Music/v4/e8/ef/0c/e8ef0c2e-1c5e-3507-f69f-9edf1d24ff70/source/100x100bb.jpg">
+        <p class="artistname" lang="jp">モンゴル800</p>
+        <p class="songtitle" lang="jp">小さな恋の歌</p>
+      </div>
+    </div>
 
   </main>
-  
+
 </body>
+
 </html>
