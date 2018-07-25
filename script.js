@@ -111,7 +111,7 @@ function songPreviewToHTML (previewUrl) {
 }
 
 function insertPreview (previewList) {
-  $('#soundbar').html('')
+  // $('#soundbar').html('')
   $('#soundbar').html(previewList).trigger('load').trigger('play')
 }
 
